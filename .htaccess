@@ -1,0 +1,33 @@
+# Konfigurasi Apache untuk aplikasi Koperasi.
+# File ini hanya berlaku saat dijalankan melalui Apache (XAMPP), bukan PHP CLI.
+
+# Jangan tampilkan daftar direktori.
+Options -Indexes
+
+# Blokir akses langsung ke dump database, dokumentasi, dan file sensitif lain.
+<FilesMatch "\.(sql|md|log|ini|bak|old|orig|env)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Blokir file konfigurasi dan file tersembunyi seperti .git, .env, .htaccess.
+<FilesMatch "^(\.|config\.(local|example)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Folder backup, skrip database, dan berkas unggahan tidak boleh diakses lewat browser.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:backups|database|storage)/ - [F,L]
+</IfModule>

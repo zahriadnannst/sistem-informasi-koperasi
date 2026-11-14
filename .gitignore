@@ -1,0 +1,44 @@
+# Sistem operasi
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log & file sementara
+*.log
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Environment dan konfigurasi lokal (jangan pernah di-commit)
+.env
+.env.*
+!.env.example
+config.local.php
+
+# Database asli dan backup berisi data pribadi
+/db_koperasi.sql
+/backups/
+*.sql
+# Pengecualian: skema dan data demo yang sudah disanitasi boleh dipublikasikan
+!database/schema.sql
+!database/demo_koperasi.sql
+
+# Dependency (jika ditambahkan di masa depan)
+vendor/
+node_modules/
+
+# Hasil build / cache
+dist/
+build/
+.cache/
+
+# File upload pembayaran (jangan upload ke GitHub)
+/storage/bukti/*
+/storage/qris/*

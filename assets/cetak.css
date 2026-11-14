@@ -1,0 +1,306 @@
+/* =========================================================================
+   Koperasi — stylesheet halaman cetak
+   ========================================================================= */
+
+:root {
+    --ink: #111827;
+    --muted: #6b7280;
+    --line: #d1d5db;
+    --soft: #f3f4f6;
+    --brand: #0f766e;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 26px 18px 50px;
+    background: #e8edf3;
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.print-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: min(900px, 100%);
+    margin: 0 auto 16px;
+}
+
+.toolbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.toolbar-btn.primary {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: #fff;
+}
+
+.print-page {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 42px 46px;
+    background: #fff;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+}
+
+.kop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 14px;
+    border-bottom: 3px double #111827;
+}
+
+.kop-logo {
+    display: grid;
+    place-items: center;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #0f172a;
+    color: #fbbf24;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.kop-text h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+}
+
+.kop-text p {
+    margin: 3px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.doc-title {
+    margin: 24px 0 4px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.doc-subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.doc-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 22px 0 8px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--soft);
+}
+
+.doc-meta span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.doc-meta strong {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.doc-filter {
+    margin: 10px 0 14px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.report-table {
+    width: 100%;
+    margin-top: 14px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.report-table th,
+.report-table td {
+    padding: 8px 9px;
+    border: 1px solid var(--line);
+    vertical-align: middle;
+}
+
+.report-table thead th {
+    background: #0f172a;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.report-table tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.report-table tfoot th,
+.report-table tfoot td {
+    background: #e5e7eb;
+    font-size: 12px;
+    font-weight: 800;
+    border-top: 2px solid #111827;
+}
+
+.col-no {
+    width: 40px;
+    text-align: center;
+}
+
+.col-center {
+    text-align: center;
+}
+
+.col-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.doc-note {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 10.5px;
+    line-height: 1.6;
+}
+
+.signature {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 34px;
+}
+
+.signature-box {
+    width: 250px;
+    text-align: center;
+}
+
+.signature-box p {
+    margin: 0;
+}
+
+.signature-role {
+    margin-top: 2px !important;
+    font-weight: 600;
+}
+
+.signature-space {
+    height: 58px;
+}
+
+.signature-name {
+    display: inline-block;
+    padding-top: 3px;
+    border-top: 1px solid #111827;
+    font-weight: 700;
+}
+
+.doc-footer {
+    margin-top: 30px;
+    padding-top: 9px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 9.5px;
+    text-align: center;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 14mm;
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: #fff;
+        font-size: 11px;
+    }
+
+    .print-toolbar,
+    .no-print {
+        display: none !important;
+    }
+
+    .print-page {
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .report-table tr {
+        page-break-inside: avoid;
+    }
+
+    .signature {
+        page-break-inside: avoid;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 14px 10px 30px;
+    }
+
+    .print-page {
+        padding: 24px 18px;
+    }
+
+    .doc-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .report-table {
+        font-size: 10px;
+    }
+
+    .report-table th,
+    .report-table td {
+        padding: 6px;
+    }
+}
